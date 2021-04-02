@@ -25,6 +25,7 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "db:recreate": "yarn sequelize-cli db:drop && yarn sequelize-cli db:create && yarn sequelize-cli db:migrate"
   }
