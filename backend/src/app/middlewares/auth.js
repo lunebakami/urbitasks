@@ -14,7 +14,7 @@ async function auth(req, res, next) {
     const decoded = await promisify(jwt.verify)(authHeader, authConfig.secret);
 
     req.userId = decoded.id;
-    req.enterprise = decoded.enterprise;
+    req.user = decoded.user;
 
     return next();
   } catch (err) {
