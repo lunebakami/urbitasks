@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#App {
+  background-color: #8782d6;
+  padding-bottom: 47px;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
