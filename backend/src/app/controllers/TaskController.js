@@ -26,7 +26,7 @@ class TaskController {
     };
 
     const taskExists = await Task.findOne({
-      where: { name: task.name },
+      where: { name: task.name, user_id },
     });
 
     if (taskExists) {
