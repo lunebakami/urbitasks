@@ -1,5 +1,5 @@
-const Yup = require("yup");
-const Task = require("../models/Task");
+const Yup = require('yup');
+const Task = require('../models/Task');
 
 class TaskController {
   async store(req, res) {
@@ -9,13 +9,13 @@ class TaskController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: "Validation fails!" });
+      return res.status(400).json({ error: 'Validation fails!' });
     }
 
     const user_id = Number(req.params.user_id);
 
     if (!user_id) {
-      return res.status(400).json({ error: "Validation fails!" });
+      return res.status(400).json({ error: 'Validation fails!' });
     }
 
     const task = {
@@ -30,7 +30,7 @@ class TaskController {
     });
 
     if (taskExists) {
-      return res.status(400).json({ error: "Task already exists." });
+      return res.status(400).json({ error: 'Task already exists.' });
     }
 
     try {
@@ -52,7 +52,7 @@ class TaskController {
 
     const tasks = await Task.findAll({
       where: { user_id },
-      order: [["updated_at", "DESC"]],
+      order: [['updated_at', 'DESC']],
     });
 
     return res.json(tasks);
@@ -82,13 +82,13 @@ class TaskController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: "Validation fails!" });
+      return res.status(400).json({ error: 'Validation fails!' });
     }
 
     const task_id = Number(req.params.task_id);
 
     if (!task_id) {
-      return res.status(400).json({ error: "Validation fails!" });
+      return res.status(400).json({ error: 'Validation fails!' });
     }
 
     const { name, description, status } = req.body;
@@ -131,7 +131,7 @@ class TaskController {
       await task.destroy();
 
       return res.json({
-        success: "Task successfuly deleted!",
+        success: 'Task successfuly deleted!',
       });
     } catch (error) {
       return res.status(400).json({ error });

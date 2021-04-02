@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
-const Yup = require("yup");
+const jwt = require('jsonwebtoken');
+const Yup = require('yup');
 
-const authConfig = require("../../config/auth");
-const User = require("../models/User");
+const authConfig = require('../../config/auth');
+const User = require('../models/User');
 
 class SessionController {
   async store(req, res) {
@@ -12,19 +12,19 @@ class SessionController {
     });
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: "Validation fails!" });
+      return res.status(400).json({ error: 'Validation fails!' });
     }
 
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return res.status(401).json({ error: "User not found." });
+      return res.status(401).json({ error: 'User not found.' });
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: "Password does not match!" });
+      return res.status(401).json({ error: 'Password does not match!' });
     }
 
     const { id, name } = user;

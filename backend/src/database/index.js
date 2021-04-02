@@ -1,8 +1,8 @@
-const Sequelize = require("sequelize");
-const User = require("../app/models/User");
-const Task = require("../app/models/Task");
+const Sequelize = require('sequelize');
+const User = require('../app/models/User');
+const Task = require('../app/models/Task');
 
-const databaseConfig = require("../config/database");
+const databaseConfig = require('../config/database');
 
 const models = [User, Task];
 

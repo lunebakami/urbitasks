@@ -1,8 +1,9 @@
-const express = require("express");
-const cors = require("cors");
+require('dotenv/config');
+const express = require('express');
+const cors = require('cors');
 
-const routes = require("./routes");
-require("./database");
+const routes = require('./routes');
+require('./database');
 
 class App {
   constructor() {
